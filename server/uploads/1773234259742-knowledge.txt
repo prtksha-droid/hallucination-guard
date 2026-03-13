@@ -1,0 +1,2 @@
+GPT-4o was released by OpenAI in May 2024.
+MCP stands for Model Context Protocol.
