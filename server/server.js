@@ -20,6 +20,10 @@ if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 app.use(cors());
 app.use(express.json({ limit: "5mb" }));
 
+app.get("/", (req, res) => {
+  res.send("Hallucination Guard API is running");
+});
+
 app.get("/health", (_req, res) => {
   res.json({ ok: true, service: "hallucination-guard-server" });
 });
@@ -27,6 +31,8 @@ app.get("/health", (_req, res) => {
 app.use("/upload", uploadRoute);
 app.use("/index", indexRoute);
 app.use("/analyze", analyzeRoute);
+
+
 
 app.listen(PORT, () => {
   console.log(`✅ Hallucination Guard server running on port ${PORT}`);
